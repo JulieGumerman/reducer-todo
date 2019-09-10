@@ -2,7 +2,7 @@
 
 let initialState = {todos: [{
     item: "learn about reducers",
-    completed: true,
+    completed: false,
     id: 4782931458943
 }]}
 
