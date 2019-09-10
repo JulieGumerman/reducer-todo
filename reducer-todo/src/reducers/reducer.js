@@ -2,7 +2,7 @@
 
 let initialState = {todos: [{
     item: "learn about reducers",
-    completed: false,
+    completed: true,
     id: 4782931458943
 }]}
 
@@ -16,13 +16,22 @@ const todoReducer = (state, action) => {
                 completed: false,
                 id: Date.now()
             } ]
-            } //close first return
-    default:
-        console.log("state from default", state)
-        return state;
+        }; //close first return
+        case "TOGGLE_TODO":
+            return { 
+                // todos: [...state.todos, {
+                //     item: todos.item, 
+                //     completed: true,
+                //     id: todos.id
+                // } ]
 
-        } //close switch
+            }
+        default:
+            console.log("state from default", state)
+            return state;
 
+    } //close switch
+    
 
 }
 

@@ -28,10 +28,26 @@ function App() {
           setNewToDo("");
           }}>Working?</button>
       </form>
-      {/* <div>
-        {state.todos.map(item => <h1>Hi!</h1>)}
-      </div> */}
-      <ToDoList state={state} />
+      <div>
+      {state.todos.map(todo => 
+                <div key={todo.id}>
+                    <h2>{todo.item}</h2>
+                    <button type="button" onClick={event => {
+                        event.preventDefault();
+                        alert("O hai!!!");
+                        // dispatch({ type: "TOGGLE_TODO"})
+                        if (todo.completed === true) {
+                          document.querySelector("h2").classList.add("is-true");
+                        } else {
+                          document.querySelector.classList.remove("is-true");
+                        }
+                    }
+                    }>Finished!!!</button>
+                </div>
+            )}
+          <button>Clear complete</button>
+      </div>
+      {/* <ToDoList state={state} /> */}
     </div>
   );
 }
