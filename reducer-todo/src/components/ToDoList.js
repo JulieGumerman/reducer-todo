@@ -4,7 +4,7 @@ import ToDoItem from "./ToDoItem";
 const ToDoList = props => {
     return (
         <div>
-            {props.state.todos.map(item => <ToDoItem todos={props.state.todos}/>)}
+            {props.state.todos.map(todo => <h1>{todo.item}</h1>)}
         </div>
     );
 }

@@ -24,9 +24,14 @@ function App() {
         }}>Commit to it!</button> */}
         <button onClick={event => {
           event.preventDefault();
-          dispatch({ type: "UPDATE_TODO", payload: newToDo})}}>Working?</button>
+          dispatch({ type: "UPDATE_TODO", payload: newToDo})
+          setNewToDo("");
+          }}>Working?</button>
       </form>
-      <ToDoList state={state}/>
+      {/* <div>
+        {state.todos.map(item => <h1>Hi!</h1>)}
+      </div> */}
+      <ToDoList state={state} />
     </div>
   );
 }
