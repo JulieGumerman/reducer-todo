@@ -18,13 +18,21 @@ const todoReducer = (state, action) => {
             } ]
         }; //close first return
         case "TOGGLE_TODO":
-            return { 
-                // todos: [...state.todos, {
-                //     item: todos.item, 
-                //     completed: true,
-                //     id: todos.id
-                // } ]
+            console.log("state.todos", state.todos);
+            return {todos: state.todos.map(item => {
+                if (item.id !== action.payload) {
+                    return item;
+                } else {
+                    return {
+                        ...item,
+                        completed: !item.completed
+                    }
+                }
+            })}//end map
 
+        case "DELETE_COMPLETED":
+            return {
+                todos: state.todos.filter(item => item.completed !== true)
             }
         default:
             console.log("state from default", state)
