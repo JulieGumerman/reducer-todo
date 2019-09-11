@@ -18,19 +18,24 @@ function App() {
     <div className="App">
         <h1>A "to do" app using reducers</h1>
       <form>
-        <input type="text" value={newToDo} onChange={handleChanges}/>
-        {/* <button onClick={() => {console.log("test");
-          dispatch({ type: "UPDATE_TODO", payload: newToDo})
-        }}>Commit to it!</button> */}
-        <button onClick={event => {
-          event.preventDefault();
-          dispatch({ type: "UPDATE_TODO", payload: newToDo})
-          setNewToDo("");
+        <input 
+          type="text" 
+          value={newToDo} 
+          onChange={handleChanges}
+          placeholder="type todo here"
+        />
+\
+        <button 
+          class="commit-btn"
+          onClick={event => {
+            event.preventDefault();
+            dispatch({ type: "UPDATE_TODO", payload: newToDo})
+            setNewToDo("");
           }}>Commit to it!</button>
       </form>
-      <div>
+      <div className="card-wrapper">
       {state.todos.map(todo => 
-                <div key={todo.id}>
+                <div key={todo.id} className="todo-card">
                     <h2 id={todo.item}>{todo.item}</h2>
                     <button onClick={event => {
                         event.preventDefault();
@@ -38,13 +43,17 @@ function App() {
                         const changeStyle = document.getElementById(`${todo.item}`);
                         changeStyle.classList.toggle("is-done");
                       }
-                    }>Finished!!!</button>
+                    }><i class="fas fa-check-square"></i> </button>
                 </div>
             )}
-          <button onClick={(event) => {
-            event.preventDefault();
-            dispatch({type: "DELETE_COMPLETED"});
-          }}>Clear complete</button>
+        <div className="button-box">
+          <button 
+            className="clear-complete"
+            onClick={(event) => {
+              event.preventDefault();
+              dispatch({type: "DELETE_COMPLETED"});
+            }}>Clear complete</button>
+        </div>    
       </div>
       {/* <ToDoList state={state} /> */}
     </div>
