@@ -1,0 +1,61 @@
+/****************variables **********************/
+$text: #234a4d;
+$border-gray: #404242;
+
+
+/******************mixins*********************/
+@mixin flexProperties ($justify) {
+  display: flex;
+  flex-direction: column;
+  justify-content: ($justify)
+}
+
+@mixin nonFancyCenter {
+  margin: 0 auto;
+}
+
+@mixin borderRadius {
+  border-radius: 5px;
+}
+@mixin setMargins {
+  margin: 30px;
+}
+/***************body************************/
+
+
+/**************global*********************/
+body {
+  color: $text;
+}
+.App {
+  text-align: center;
+}
+
+/***************form******************/
+form { 
+  @include flexProperties(center);
+  width: 50%;
+  @include nonFancyCenter;
+
+  input {
+    height: 50px;
+    border: 3px solid $border-gray;
+    @include borderRadius;
+    font-size: 20px;
+  }
+}
+
+/************todo list *****************/
+.is-done {
+  text-decoration: line-through;
+}
+
+/****************buttons****************/
+button {
+  width: 200px;
+  height: 50px;
+  border: 3px solid $border-gray;
+
+  @include borderRadius;
+  @include setMargins;
+}

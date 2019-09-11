@@ -1,5 +1,5 @@
 import React, { useState, useReducer} from 'react';
-import './App.css';
+import './App.scss';
 import { initialState, todoReducer } from "./reducers/reducer";
 import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
